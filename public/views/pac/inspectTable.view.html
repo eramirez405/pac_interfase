@@ -1,0 +1,66 @@
+<div>
+<br>
+	<div class="row"><div class="col-sm-4"><div class="container">
+		<h3>Inspeccionar Tablas</h3>
+	</div></div></div>
+    <div class="row">
+    
+      	<div class="col-sm-2">
+        	<form ng-submit="GetTable()">
+        		<div class="container">
+
+			        <div class="form-group">
+			          <label for="tableType">Tipo de tabla</label>
+			          <select class="form-control" name="tableType" id="tableType" ng-model="tableType" ng-change="tableTypeSelected()">
+						    <option style="display:none"></option>
+			                <option value="floats">Float Table</option>
+			                <option value="int32s">Int32 Table</option>
+			                <option value="int64s">Int64 Table</option>
+			                <option value="strings">String Table</option>
+			            </select>
+			        </div>
+
+			        <div>
+				        <div class="form-group">
+				          <label for="tableList">Tipo</label>
+				          <select class="form-control" name="tableList" id="tableList" ng-model="tableList">
+							    <option style="display:none"></option>
+				                <option ng-repeat="tableListResult in tableListResults" value="{{tableListResult.name}}">{{tableListResult.name}}  ({{tableListResult.length}})</option>
+				          </select>
+				        </div>
+       				</div>
+
+        			<button type="submit" class="btn btn-primary">Enviar</button>
+
+        		</div>
+      		</form>
+    	</div>
+	    
+	</div>
+
+	<br><br>
+
+		<div class="row">
+
+			<div class="col-sm-6" style="overflow: auto;">
+				<div class="container">
+			<table ng-if="tableListed" class="table" style="margin-bottom: 150px;">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">Index</th>
+			      <th scope="col">Value</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr ng-repeat="table in tableListed">
+			        <td scope="row">{{table.index}}</td> 
+			        <td>{{table.msg}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+			</div>
+		</div>
+    
+  		</div>
+
+</div>

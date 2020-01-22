@@ -1,0 +1,109 @@
+<div>
+<br>
+	<div class="row"><div class="col-sm-4"><div class="container">
+		<h3>Inspeccionar ios</h3>
+	</div></div></div>
+    <div class="row">
+    
+      	<div class="col-sm-2">
+        	<form ng-submit="GetPac()">
+        		<div class="container">
+
+			        <div class="form-group">
+			          <label for="tipoIO">Tipo de I/O</label>
+			          <select class="form-control" name="tipoIO" id="tipoIO" ng-model="tipoIO">
+						    <option style="display:none"></option>
+			                <option value="input">Input</option>
+			                <option value="output">Output</option>
+			            </select>
+			        </div>
+
+			        <div class="form-group">
+			          <label for="tipo">Tipo</label>
+			          <select class="form-control" name="tipo" id="tipo" ng-model="tipo">
+						    <option style="display:none"></option>
+			                <option value="analog">Analoga</option>
+			                <option value="digital">Digital</option>
+			            </select>
+			        </div>
+       
+        			<button type="submit" class="btn btn-primary">Enviar</button>
+
+        		</div>
+      		</form>
+    	</div>
+
+	    <div class="col-sm-4" style="overflow: auto;">
+
+			<table ng-if="results" class="table table-dark">
+			  <thead>
+			    <tr>
+			      <th scope="col">Name</th>
+			      <th scope="col">Value</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr ng-repeat="result in results">
+			        <td scope="row">{{result.name}}</td> 
+			        <td>{{result.value}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+
+		</div>
+	    
+	</div>
+
+	<br><br>
+
+	<div ng-hide="showOutForm" class="ng-hide mb-5">
+
+		<div class="row"><div class="col-sm-4"><div class="container">
+		<h3>Enviar Output</h3>
+		</div></div></div>
+
+		<div class="row">
+
+			<div class="col-sm-2">
+				
+				<form ng-submit="SetPac()">
+					<div class="container">
+
+						<div class="form-group">
+							<label for="nameIO">Name</label>
+							<select class="form-control" name="nameIO" id="nameIO" ng-model="nameIO">
+							    <option style="display:none"></option>
+							    <option ng-repeat="result in results" value="{{result.name}}">{{result.name}}</option>
+						    </select>
+						</div>
+
+						<div class="form-group ng-hide" ng-show="numericInput">
+						  <label for="numericValue">Value</label>
+						  <input type="number" class="form-control" id="numericValue" ng-model="numericValue">
+						</div>
+
+						<div class="form-group ng-hide" ng-show="booleanInput">
+						  <label for="booleanValue">Value</label>
+						  <select class="form-control" name="booleanValue" id="booleanValue" ng-model="booleanValue">
+						    <option style="display:none"></option>
+			                <option value="true">True</option>
+			                <option value="false">False</option>
+			              </select>
+						</div>
+
+						<button type="submit" class="btn btn-primary">Enviar</button>
+					</div>
+				</form>
+			</div>
+
+			<div class="col-sm-10" style="overflow: auto;">
+
+		    </div>
+    
+  		</div>
+
+	</div>
+
+	<div class="row mb-5 mt-5 pt-3"></div>
+
+</div>

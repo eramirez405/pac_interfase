@@ -1,0 +1,136 @@
+<br>
+
+
+    <div class="row">
+
+    	<div class="col-sm-2">
+	        <form ng-submit="searchProject()">
+	        <div class="container">
+
+	        <div class="form-group">
+	          <label for="no_proyeto">Buscar proyecto a actualizar</label>
+	          <input type="text" class="form-control" id="no_proyecto" placeholder="Buscar proyecto por FP" ng-model="fpSearch">
+	        </div>
+	        <button type="submit" class="btn btn-primary">Submit</button>
+	      </form>
+	      </div>
+	    </div>
+
+
+      <div class="col-sm-10 ng-hide" ng-hide="foundedProject">
+      	
+      	<form ng-submit="updateProject()">
+
+      		<div class="row">
+
+      	<div class="col-sm-4 ng-hide" ng-hide="foundedProject">
+        <div class="form-group">
+          <label for="no_secuencia">No. Secuencia<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <input type="number" class="form-control" id="no_secuencia" ng-model="no_secuencia">
+        </div>
+
+        <div class="form-group">
+          <label for="descripcion">Descripcion<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <textarea class="form-control" id="descripcion" ng-model="descripcion" rows="3"></textarea>
+        </div>
+
+        <div class="form-group">
+          <label for="tipo">Tipo<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <select class="form-control" name="tipo" id="tipo" ng-model="tipo">
+			    <option style="display:none"></option>
+                <option value="Parada">Parada</option>
+                <option value="Seguridad">Seguridad</option>
+                <option value="Auditoria">Auditoria</option>
+                <option value="Operacion">Operacion</option>
+            </select>
+        </div>
+
+        <div class="form-group">
+          <label for="solicitante">Solicitante<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <input type="text" class="form-control" id="solicitante" ng-model="solicitante">
+        </div>
+
+        <div class="form-group">
+          <label for="gerente">Gerente Patrocinador<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <input type="text" class="form-control" id="gerente" ng-model="gerente">
+        </div>
+
+        <div class="form-group">
+          <label for="fecha_recibido">Fecha De Recepcion<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <div class="input-group date">
+    		  <input id="datepicker1" width="276" ng-model="fecha_recibido">
+    		  </div>
+        </div>
+    </div>
+
+
+
+  	<div class="col-sm-4 ng-hide" ng-hide="foundedProject">
+
+        <div class="form-group">
+          <label for="unidad">Unidad:<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <input type="number" class="form-control" id="unidad" ng-model="unidad">
+        </div>
+
+        <div class="form-group">
+          <label for="lugar">Lugar:<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <input type="text" class="form-control" id="lugar" ng-model="lugar">
+        </div>
+    
+        <div class="form-group">
+          <label for="fp">FP:</label>
+          <input maxlength="20" type="text" class="form-control" name="fp" id="fp" ng-model="fp">
+        </div>
+        
+        <div class="form-group">
+          <label for="comentario">Comentario:</label>
+          <textarea maxlength="499" class="form-control" name="comentario" id="comentario" ng-model="comentario" rows="3"></textarea >
+        </div>
+
+        <div class="form-group">
+          <label for="estado">Estado:</label>
+          <input maxlength="20" class="form-control" type="text" name="estado" id="estado" ng-model="estado">
+        </div>
+
+        <div class="form-group">
+          <label for="ejecutante">Ejecutante:</label>
+          <input maxlength="20" type="text" class="form-control" name="ejecutante" id="ejecutante" ng-model="ejecutante">
+        </div>
+
+    </div>
+  	<div class="col-sm-4 ng-hide" ng-hide="foundedProject">
+
+        <div class="form-group">
+          <label for="lider">Líder:</label>
+          <input maxlength="40" type="text" class="form-control" name="lider" id="lider" ng-model="lider">
+        </div>
+
+        <div class="form-group">
+          <label for="fecha_para_aprobacion">Fecha para aprobación:</label>
+          <input id="datepicker2" width="276" ng-model="fecha_para_aprobacion">
+        </div>
+
+        <div class="form-group">
+          <label for="fecha_aprobado">Fecha de aprobación:</label>
+          <input id="datepicker3" width="276" ng-model="fecha_aprobado">
+        </div>
+
+        <div class="form-group">
+          <label for="costo_estimado">Costo Estimado:</label>
+          <input type="number" class="form-control" name="costo_estimado" id="costo_estimado" ng-model="costo_estimado" placeholder="US$">
+        </div>
+
+        <div class="form-group">
+          <label for="costo_aprobado">Costo Aprobado:</label>
+          <input type="number" class="form-control" name="costo_aprobado" id="costo_aprobado" ng-model="costo_aprobado" placeholder="US$">
+        </div>
+
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <br><br>
+        <span ng-hide="requiredValues" class="ng-hide" style="color: red">Los renglones con  *  son mandatorios</span>
+		</form>
+      </div>
+  </div>
+  </div>
+  </div>

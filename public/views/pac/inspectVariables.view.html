@@ -1,0 +1,56 @@
+<div>
+<br>
+	<div class="row"><div class="col-sm-4"><div class="container">
+		<h3>Inspeccionar Variables</h3>
+	</div></div></div>
+    <div class="row">
+    
+      	<div class="col-sm-2">
+        	<form ng-submit="GetVariable()">
+        		<div class="container">
+
+			        <div class="form-group">
+			          <label for="variableType">Tipo de tabla</label>
+			          <select class="form-control" name="variableType" id="variableType" ng-model="variableType">
+						    <option style="display:none"></option>
+			                <option value="floats">Float Variables</option>
+			                <option value="int32s">Int32 Variables</option>
+			                <option value="int64s">Int64 Variables</option>
+			                <option value="strings">String Variables</option>
+			            </select>
+			        </div>
+
+        			<button type="submit" class="btn btn-primary">Enviar</button>
+
+        		</div>
+      		</form>
+    	</div>
+	    
+	</div>
+
+	<br><br>
+
+		<div class="row">
+
+			<div class="col-sm-6" style="overflow: auto;">
+				<div class="container">
+			<table ng-if="variablesListed" class="table" style="margin-bottom: 150px;">
+			  <thead class="thead-dark">
+			    <tr>
+			      <th scope="col">Name</th>
+			      <th scope="col">Value</th>
+			    </tr>
+			  </thead>
+			  <tbody>
+			    <tr ng-repeat="variable in variablesListed">
+			        <td scope="row">{{variable.name}}</td> 
+			        <td>{{variable.value}}</td>
+			    </tr>
+			  </tbody>
+			</table>
+			</div>
+		</div>
+    
+  		</div>
+
+</div>

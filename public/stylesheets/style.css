@@ -1,0 +1,23 @@
+body {
+    background: #eee;
+}
+
+footer {
+    width:100%;
+    padding:20px 0;
+    position: fixed;
+    bottom: 0;
+    color: #fff;
+}
+
+.bg-black {
+    background-color: #2f2f2f; /*Black Gray */
+}
+
+a {
+	cursor: pointer;
+}
+
+.row {
+	margin-right: 0;
+}

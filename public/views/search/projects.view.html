@@ -1,0 +1,110 @@
+<div ng-controller="SearchProjectsCtrl as showCase">
+<br>
+
+  
+    <div class="row">
+
+      <div class="col-sm-2">
+        <form ng-submit="searchProject()">
+        <div class="container">
+
+        <div class="form-group">
+          <label for="no_proyeto">No. Proyecto</label>
+          <input type="text" class="form-control" id="no_proyecto" placeholder="Buscar proyecto por FP" ng-model="fp">
+        </div>
+        <div class="form-group">
+          <label for="descripcion">Descripcion<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <textarea class="form-control" id="descripcion" rows="3" placeholder="Introduzca una palabra o frase en la descripcion del proyecto" ng-model="descripcion"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="desde">Desde<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <!--<input type="date" class="form-control" name="desde" id="desde" ng-model="desde">-->
+          <div class="input-group date">
+          <input id="datepicker1" width="276" name="desde" id="desde" ng-model="desde">
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="hasta">Hasta<span ng-hide="requiredValues" class="ng-hide" style="color: red">*</span></label>
+          <!--<input type="date" class="form-control" name="hasta" id="hasta"  ng-model="hasta">-->
+          <div class="input-group date">
+          <input id="datepicker2" width="276" ng-model="hasta">
+          </div>
+        </div>
+        <button type="submit" class="btn btn-primary">Enviar</button>
+      </form>
+      </div>
+    </div>
+    <div class="col-sm-10" style="overflow: auto;">
+      
+
+    <table ng-if="projects" datatable="ng" dt-options="showCase.dtOptions" class="row-border hover">
+          <thead>
+            <tr>
+              <th>No. Secuencial</th>
+              <th class="date">Fecha De Registro</th>
+              <th class="descripcion">Descripcion</th>
+              <th>Tipo</th>
+              <th>Solicitante</th>
+              <th>Gerente</th>
+              <th class="date">Fecha Recibido</th>
+              <th>Unidad</th>
+              <th>Lugar</th>
+              <th>No. Proyecto</th>
+              <th class="comentario">Comentario</th>
+              <th>Estado</th>
+              <th class="date">Desde</th>
+              <th>Ejecutante</th>
+              <th>Lider</th>
+              <th class="date">Fecha Para Aprobacion</th>
+              <th class="date">Fecha De Aprobacion</th>
+              <th>Costo Estimado</th>
+              <th>Costo Aprobado</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr ng-repeat="project in projects">
+                <td>{{project.nosecuencial}}</td> 
+                <td>{{project.reg_date | date : "dd/MM/y"}}</td>
+                <td>{{project.descripcion}}</td> 
+                <td>{{project.tipo}}</td> 
+                <td>{{project.solicitante}}</td>
+                <td>{{project.gerente}}</td> 
+                <td>{{project.fecha_recibido | date : "dd/MM/y"}}</td>
+                <td>{{project.unidad_planta}}</td>
+                <td>{{project.lugar}}</td>
+                <td>{{project.fp}}</td>
+                <td>{{project.comentario}}</td>
+                <td>{{project.estado}}</td>
+                <td>{{project.desde | date : "dd/MM/y"}}</td>
+                <td>{{project.ejecutante}}</td>
+                <td>{{project.lider}}</td>
+                <td>{{project.fecha_para_aprobacion | date : "dd/MM/y"}}</td>
+                <td>{{project.fecha_aprobado | date : "dd/MM/y"}}</td>
+                <td>{{project.costo_estimado}}</td>
+                <td>{{project.costo_aprobado}}</td>
+            </tr>
+
+          </tbody>
+      </table>
+    
+    </div>
+    
+  </div>
+</form>
+</div>
+
+<script type="text/javascript">
+  
+$('#datepicker1').datepicker({
+        uiLibrary: 'bootstrap4',
+        format: 'dd/mm/yyyy',
+        locale: 'es-es'
+    });
+
+    $('#datepicker2').datepicker({
+        uiLibrary: 'bootstrap4',
+        format: 'dd/mm/yyyy',
+        locale: 'es-es'
+    });
+  
+</script>
